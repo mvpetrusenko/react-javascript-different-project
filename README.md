@@ -947,30 +947,152 @@ background-color: red
 24. css tag row-gap: space between picture and text
 25. in Figma switch to dev mode to see css of element on click
 
+## SASS
+
+css preprocessor (SASS, PostCSS, LESS, Stilus) - program to use for styles more convenient syntax
+SASS - styles.css -> styles.scss
+
+Configuration SASS in VSCode:
+
+1. install Node.js from website (LTS version)
+2. in IDE terminal: npm install -g sass (g - global for the whole computer)
+3. in VSCode - Terminal - Configure tasks - Create tasks json file from template - Others (folder .vscode will
+   be created with file tasks.json
+4. In tasks.json change 'tasks'.'label' from 'echo' to ("label": "Compile SCSS to CSS)
+5. In tasks.json change tasks.command from 'echo hello' to 'sass styles.scss styles.css',
+6. In tasks.json add to tasks additional field: "group": "build"
+7. In the root directory of the project create file styles.scss with code
+   body {
+   background-color: blue;
+   header {
+   background-color: red;
+   }
+   }
+
+- it is syntax of vlozhennih selectors in sass
+
+8. check if this styles.scss file can be transform into css format: save file + terminal - Run Build Task -
+   near styles.scss file appeared two files: styles.css and styles.css.map - in
+   sytles css will be transformed code:
+
+body header {
+background-color: red;
+}
+
+9. to do transformation automatically (without Run Build Task... ) - use sborshchik of projects: Vite, Webpack or Gulp (for there configuration one has to know JavaScript)
+10. @mixin title ($max: 3) {
+    color: black;
+    margin: $max;
+} 
+($max: 3) - default value of mixin argument
+    in mixin - like function - used all properties of mixin in the other tag
+11. Use mixin inside selector with argument (margin will be 4):
+    .class1 {
+    @include title(4);
+    }
+
+12. Or @include title; - if there is no parameter, parameter will be 3 - as in default
+13. variables in mixins (in css they will be decoded as usual css parameters - without variables)
+    @mixin span($min: 5, $max: 10) {
+    font-size: #{$min}px,#{$max}px;
+    }
+
+variables can be used in maths functions 14. functions in SASS (for reusable code):
+@function getSize($multiplier: 1) {
+    @return #{$multiplier \* 8}px
+}
+
+.box-1 {
+padding: getSize(); // 8px
+}
+
+.box-2 {
+padding: getSize(2); // 16px
+}
+
+localStorage - data is kept unlimited (even after computer reload)
+sessionStorage - data kept while active tab
+
+Optimize images for mobile devices:
+
+1. tag img: css max-width: 200px, width: 100% (to get right size while decreasing screen size)
+2. for div wrapper and image as background (background: url()) - wrapper - max-width: 200px, .img {background: url(); width: 100%;}
+3. full screen image: .fullScreen {width: 100vw; height: 100vh div: background: url(); width: 100%; height: 100%
+   h2 font-size: 10vw}
+   width: 100vw; height: 100vh - 100% of width and height seen visibility of screen,
+   h2 font-size: 10vw - rubber text (on full screen image)
+4. to prevent horizontal scroll of full screen image (image over size of body container):
+   body {
+   overflow-x: hidden;
+   overflow-y: scroll;
+   }
+
+vertical scroll allowed, horizontal - NOT allowed
+
+LightHouse - Performance - Properly size images (need to make images smaller):
+in Dev tools - hover image.jpg to see the size of container (for example, 300 x 200 px)
+in Paint - Resize - Pixels
+to minify this cropped image one can use online websites like compressjpeg.com (to minigy to 50...%)
+
+Use autoprefexer (or Gulp) css online (for SASS...) - and then to cssminifier.com
+Gulp - if we need in the future support code
+
+Lazy Load (load while scrolling):
+LightHouse - Defer offscreen images
+Use library - lazysizes (on github) - Code - Download zip
+From zip get file lazysizes.min.js
+import 'lazisizes (see documentation of this library github)
+in each img tag add class lazyload and data-src <img data-src="..." class="lazyload">
+After page refresh in DevTools - Network while scrolling new images will be added
+
+Compress image without lost quality WEBP:
+Use website squoosh.app or others - convert to format webp
+With webp format there is a problem with cross browsers (cannot be seen in Internet Explorer browser, can see jpeg)
+to show jpeg for Internet Explorer and only webp for Google Chrome:
+<picture>
+
+<source srcset="image2.webp" type="image/webp">
+<img src="image2.jpg">
+</picture>
+
+Figma design maket - psd templates
+Figma Community - Design Templates (or adobe xd)
+
+Deploy to vercel.com (free)
+Do not use Git Hub Pages (not use for difficult projects, like using React)
+Vercel - Import git repository
+
+text - p tag
+undertext - span tag
+
+export svg - the most optimized image (because it is code)
+
 ## TO DO
 
-15 - change language
-9 - optimizing images
-11 - calculator
-12 - upload images
-13 - AXIOS for API calls (or fetch)
-14 - Tailwind CSS
-16 - Role-based access for different membership levels, restricting content based on user subscriptions (admin, customer)
-17 - edit your profile
-18 - admin panel (add new pages, add/delete clubs, edit schedule)
+15 - change language + local storage (and local storage for dark mode)
 19 - pagination
 20 - breadcrumbs
 21 - login via google
-22 - cookies
-23 - session storage
-24 - lazy loading
+34 - Redux
+
+## Other Topics
+
+11 - calculator
+12 - upload images
+16 - Role-based access for different membership levels, restricting content based on user subscriptions (admin, customer)
+17 - edit your profile
+18 - admin panel (add new pages, add/delete clubs, edit schedule)
 25 - calendar to book a training  
 26 - drag-and-drop
-27 - pixel-perfect precision
-28 - design on Figma template
 29 - add comments
-30 - optimizing performance
-31 - SASS
 32 - show a notification
 33 - improve page loading time and time to interactive (DevTools - LightHouse)
-34 - Redux
+28 - design on Figma template
+27 - pixel-perfect precision - no difference between design and website (chrome plugin - PerfectPixel by WellDoneCode)
+31 - SASS
+22 - cookies / cash
+23 - session storage
+9 - optimizing images
+24 - lazy loading
+30 - optimizing performance
+14 - Tailwind CS - faster css (like Bootstrap a lot of ready-for-use classes)

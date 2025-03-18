@@ -172,8 +172,29 @@ function FifthPage() {
     //   console.log('After refresh dark theme: ', darkTheme)
     // }
 
+  }; 
 
-  };
+
+
+
+  // The browser's default action is to focus the input and open the list 
+  // You need to event.preventDefault() opening action and then focus() the target element 
+
+  // const [clickDropdown, setClickDropdown] = useState('')
+
+
+  // handleLanguageDropdown is not defined - because function inside the other function
+  // const handleLanguageDropdown = (event) => {
+  //   event.preventDefault() 
+  //   const clicked = event.target
+  //   console.log('Clicked dropdown button :', clicked) 
+  //   const stateClicked = setClickDropdown(clicked) 
+  //   console.log('Set state of clicked dropdown button: ', stateClicked)
+  // }
+
+
+
+
 
   return ( 
     <div>
@@ -187,7 +208,18 @@ function FifthPage() {
                       id='checkboxSwitch'
                       onChange={switchTheme}></input> 
               <label htmlFor='checkboxSwitch' className='sliderSwitch'></label>
-            </label>
+            </label> 
+        </div> 
+
+
+
+        {/* npm i react-intl - to use different languages (internationalization) */}
+        <p>Change language</p>
+        <div className='languagesDropdown'> 
+          <button className='dropdownButton'>EN</button>
+          <div className='dropdownContent'></div> 
+            <a href='#'>FR</a>
+            <a href='#'>IT</a>
         </div>
 
     </div>

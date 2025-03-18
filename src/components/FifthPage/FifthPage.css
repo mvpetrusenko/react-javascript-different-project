@@ -61,3 +61,38 @@ style around input */
 
 
 
+.languagesDropdown { 
+    display: inline-block;
+    background-color: aqua; 
+    padding: 20px;
+}
+
+
+
+
+.dropdownButton {
+    background-color: blue; 
+    color: white; 
+    width: 100px; 
+    margin: auto;
+    padding: 10px 20px;
+} 
+
+
+
+
+.dropdownContent {
+    background-color: antiquewhite; 
+    display: none;
+}
+
+
+
+
+.dropdownContent a {
+    display: block;
+}
+
+
+
+

@@ -7,6 +7,8 @@ html {
 
 body {
   background-color: var(--background-color); 
+  overflow-x: hidden; /* horizontal scroll NOT allowed */
+  overflow-y: scroll; /* vertical (up-down) scroll allowed */
   color: var(--color);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
