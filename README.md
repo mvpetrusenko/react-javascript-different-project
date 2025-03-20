@@ -1060,20 +1060,55 @@ Figma Community - Design Templates (or adobe xd)
 
 Deploy to vercel.com (free)
 Do not use Git Hub Pages (not use for difficult projects, like using React)
-Vercel - Import git repository
+Vercel - New Project - Import git repository - choose your repository - button Import -
+Framework Preset (Create React App) - Deploy - State ready (everything ok) -
+button Visit (to open our website, this link we can share to show our website)
+and in our github repository in section About there will be a link to our website and
+in the section Environments - View deployment
 
 text - p tag
 undertext - span tag
 
 export svg - the most optimized image (because it is code)
 
+Mobile first
+Fonts:
+create folder fonts - see throught the projects what fonts and weight,
+download zip of theses fonts and save needed ones
+files of fonts - convert from ttf to woff2
+
+src: url('../fonts/Roboto-Medium.woff2') format('woff2'), url('../fonts/Roboto-Medium.woff'); - if you
+have two files: Roboto-Medium.woff and Roboto-Medium.woff2
+
+../ - exit images folder
+../fonts - enter fonts folder
+
+add fonts to file: create file fonts.css
+In fonts.css:
+@font-face {
+font-family: 'Roboto-Medium';
+font-weight: 500;
+font-style: normal;
+src: url('../fonts/Roboto-Medium.woff2') format('woff2'), url('../fonts/Roboto-Medium.woff') format('woff');
+}
+
+Then in styles.css:
+('Arial', 'sans-serif' - additional styless if Roboto-Regular will not work)
+
+body {
+font-family: 'Roboto-Regular', 'Arial', 'sans-serif';
+}
+
+flex-grow: 1 - for content grow with additional content and stick footer to the bottom
+
 ## TO DO
 
-15 - change language + local storage (and local storage for dark mode)
-19 - pagination
-20 - breadcrumbs
-21 - login via google
-34 - Redux
+1. change language + local storage (and local storage for dark mode)
+2. pagination
+3. breadcrumbs
+4. login via google
+5. Redux
+6. Next.js
 
 ## Other Topics
 
